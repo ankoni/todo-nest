@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+  postgres:
+    container_name: tododb
+    image: postgres:15.3
+    restart: always
+    environment:
+      - 'POSTGRES_USER=${DB_USER}'
+      - 'POSTGRES_PASSWORD=${DB_PASSWORD}'
+      - 'POSTGRES_DB=${DB_NAME}'
+      - 'POSTGRES_HOST_AUTH_METHOD=trust'
+    ports:
+      - '${DB_PORT}:5432'
